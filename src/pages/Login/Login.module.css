@@ -1,0 +1,171 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.logoSection {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bigLogo {
+    width: 50%;
+    max-width: 400px;
+}
+
+.contentSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+.mainTitle {
+    font-size: 64px;
+    font-weight: 900;
+    margin-bottom: 40px;
+    letter-spacing: -2px;
+}
+
+.subTitle {
+    font-size: 31px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
+
+.inputField {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #cfd9de;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.loginBtn {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.loginBtn:hover {
+    background-color: #272c30;
+}
+
+.termsText {
+    font-size: 11px;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.termsText span {
+    color: #1da1f2;
+    cursor: pointer;
+}
+
+.signupHeading {
+    margin-top: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.signupBtn {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 1px solid #cfd9de;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.signupBtn:hover {
+    background-color: #f7f7f7;
+}
+
+.signupBtn svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+@media (max-width: 1000px) {
+
+    .container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;     
+        padding: 0px 20px;  
+        min-height: 100vh;
+    }
+
+    .logoSection {
+        width: 100%;
+        max-width: 380px; 
+        max-height: 15vh;
+        display: flex;
+        justify-content: flex-start; 
+        margin: 0;
+    }
+
+    .bigLogo {
+        max-width: 40px; 
+    }
+
+    .contentSection {
+        width: 100%;
+        max-width: 380px; 
+        padding: 0;
+        margin: 0; 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .mainTitle {
+        font-size: 40px;
+        line-height: 1.1;
+        margin-bottom: 40px;
+        margin-top: 0px;
+        letter-spacing: -1.2px;
+        text-align: left;
+    }
+
+    .subTitle {
+        font-size: 24px;
+        margin-bottom: 25px;
+        margin-top: 0px;
+        text-align: left;
+    }
+
+    .form {
+        max-width: 100%; 
+        width: 100%;
+        gap: 1px;
+    }
+}

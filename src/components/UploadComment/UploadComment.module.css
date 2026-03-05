@@ -1,0 +1,46 @@
+.commentCard {
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #eee;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    color: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.input {
+    flex: 1;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.miniPostBtn {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-weight: bold;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.miniPostBtn:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}

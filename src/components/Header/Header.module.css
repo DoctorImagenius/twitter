@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.sidebar {
+    height: 100vh;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #eff3f4;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+.navItems div {
+    padding: 12px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: 0.2s;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navItems div:hover { background-color: #e7e7e8; }
+
+.navItems div strong {
+    text-align: center;
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #000000;
+}
+
+.postBtn {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 999px;
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.postBtn:hover { background-color: #333333; }
+
+.userProfile {
+    margin-top: auto;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50px;
+    border: 1px solid #ece8e8;
+    transition: 0.2s;
+}
+
+.userProfile:hover { background-color: #e7e7e8; }
+
+.avatar {
+    width: 40px; height: 40px;
+    background: #ccc;
+    border-radius: 50%;
+    font-weight: bold;
+
+    display: flex; align-items: center; justify-content: center;
+}
+
+.userInfo{
+    display: flex; flex-direction: column;
+}

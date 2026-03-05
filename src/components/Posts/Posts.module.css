@@ -1,0 +1,83 @@
+.postCard {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid #e6ecf0;
+    transition: 0.2s;
+}
+
+.postCard:hover {
+    background-color: #f7f9f9;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #1d9bf0;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.postContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.postHeader {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.userName {
+    font-weight: 700;
+}
+
+.userHandle {
+    color: gray;
+    font-size: 14px;
+}
+
+.editButton{
+    margin-left: auto;
+    margin-right: 0px;
+    color: gray;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.editButton svg:hover{
+    color: #1d9bf0;
+}
+
+.postBody {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.postImage {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 10px;
+    border: 1px solid #e2e4e6;
+}
+
+.postActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 20px;
+    color: gray;
+    cursor: pointer;
+}
+
+.postActions svg:hover {
+    color: #1d9bf0;
+}

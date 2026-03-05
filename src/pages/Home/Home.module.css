@@ -1,0 +1,153 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.homeLayout {
+    display: grid;
+    grid-template-columns: 275px 600px 1fr; 
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.feed {
+    border-right: 1px solid #eff3f4;
+}
+
+.feedHeader {
+    padding: 15px;
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.85);
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #eff3f4;
+}
+
+.whatsHappening {
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid #eff3f4;
+}
+
+.avatarSmall{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+
+}
+
+.postInputs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.titleInput {
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background-color: #f7f9fa;
+  color: #111;
+}
+
+.bodyInput {
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  resize: none;
+  border-radius: 8px;
+  min-height: 80px;
+  background-color: #f7f9fa;
+  color: #111;
+}
+
+.miniPostBtn:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.whatsHappening textarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    resize: none;
+}
+
+.miniPostBtn {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-weight: bold;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.widgets {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.searchBar {
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.searchBar input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 50px;
+    border: 1px solid #dbdedf;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.trendingCard {
+    border-radius: 16px;
+    padding: 0px;
+    margin-top: 15px;
+    border: 1px solid #ebf0f1;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.85);
+    overflow: hidden;
+}
+
+.trendingCard h3 {
+    padding: 15px;
+    border-bottom: 1px solid #ebf0f1;
+}
+
+.trendItem {
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.trendItem:hover {
+    background-color: rgba(248, 244, 244, 1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1000px) {
+    .homeLayout { grid-template-columns: 80px 1fr 0; }
+    .widgets { display: none; }
+}
