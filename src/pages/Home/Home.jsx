@@ -9,11 +9,13 @@ import CreatePostModal from '../../components/CreatePost/CreatePost';
 import EditPost from '../../components/EditPost/EditPost';
 import EditComment from '../../components/EditComment/EditComment';
 
+import NavBar from '../../components/NavBar/NavBar'
+
 
 
 
 export default function Home() {
-  const { currentUser, setCurrentUser, activeComponent, showCreatePostModal, posts, setPosts, showEditPostModal, loading, showEditCommentModal, setShowEditCommentModal} = useContext(AuthContext);
+  const { currentUser, setCurrentUser, activeComponent, showCreatePostModal, posts, setPosts, showEditPostModal, loading, showEditCommentModal } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -61,7 +63,10 @@ export default function Home() {
 
   return (
     <div className={styles.homeLayout}>
-      <Header onLogout={handleLogout} />
+
+      <div className={styles.webHeader}>
+        <Header onLogout={handleLogout} />
+      </div>
 
       {loading ? "Loading..." :
         <main className={styles.feed}>
@@ -126,6 +131,12 @@ export default function Home() {
       {
         showEditCommentModal && (<EditComment />)
       }
+
+      <div className={styles.mobileHeader}>
+        <NavBar />
+      </div>
+
     </div>
   );
+
 }

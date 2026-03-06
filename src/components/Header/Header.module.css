@@ -1,7 +1,8 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 .sidebar {
     height: 100vh;
     padding: 10px 20px;
@@ -29,7 +30,9 @@
     justify-content: flex-start;
 }
 
-.navItems div:hover { background-color: #e7e7e8; }
+.navItems div:hover {
+    background-color: #e7e7e8;
+}
 
 .navItems div strong {
     text-align: center;
@@ -46,14 +49,16 @@
     color: white;
     border: none;
     padding: 15px;
-    border-radius: 999px;
+    border-radius: 50px;
     font-weight: bold;
     font-size: 17px;
     margin-top: 20px;
     cursor: pointer;
 }
 
-.postBtn:hover { background-color: #333333; }
+.postBtn:hover {
+    background-color: #333333;
+}
 
 .userProfile {
     margin-top: auto;
@@ -68,17 +73,83 @@
     transition: 0.2s;
 }
 
-.userProfile:hover { background-color: #e7e7e8; }
+.userProfile:hover {
+    background-color: #e7e7e8;
+}
 
 .avatar {
-    width: 40px; height: 40px;
+    width: 40px;
+    height: 40px;
     background: #ccc;
     border-radius: 50%;
     font-weight: bold;
-
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.userInfo{
-    display: flex; flex-direction: column;
+.userInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1280px) {
+
+    .sidebar {
+        height: 100vh;
+        padding: 10px 20px;
+        max-width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
+
+    .navItems div {
+        justify-content: center;
+        padding: 12px 0;
+    }
+
+    .navItems div strong,
+    p {
+        display: none;
+    }
+
+    .postBtn {
+        padding: 10px;
+        font-size: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: relative;
+        align-self: flex-end;
+    }
+
+    .postBtn::after {
+        content: "P";
+        font-size: 20px;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .userProfile {
+        flex-direction: column;
+        padding: 5px;
+        border: none;
+    }
+
+    .userProfile .userInfo {
+        display: none;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    
 }
