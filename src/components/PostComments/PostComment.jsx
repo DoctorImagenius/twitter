@@ -1,4 +1,4 @@
-import { useContext} from 'react';
+import { useContext } from 'react';
 import styles from './PostComment.module.css';
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -9,7 +9,7 @@ import {
 
 export default function PostComment({ comment }) {
 
-  const { currentUser, showEditCommentModal, setShowEditCommentModal} = useContext(AuthContext);
+  const { currentUser, setShowEditCommentModal, setEditingComment } = useContext(AuthContext);
 
 
   return (
@@ -23,16 +23,19 @@ export default function PostComment({ comment }) {
           <span className={styles.commentName}>{comment.name}</span>
           <span className={styles.commentEmail}>@{comment.email.split('@')[0]}</span>
           {
-            currentUser.email === comment.email ? 
-              <HiOutlineEllipsisHorizontal className={styles.commentDot} 
-              onClick={()=>setShowEditCommentModal(true)}
+            currentUser.email === comment.email ?
+              <HiOutlineEllipsisHorizontal className={styles.commentDot}
+                onClick={() => {
+                  setEditingComment(comment)
+                  setShowEditCommentModal(true)
+                }
+                }
               />
-            :""
+              : ""
           }
         </div>
         <p className={styles.commentBody}>{comment.body}</p>
       </div>
     </div>
-
   );
 }

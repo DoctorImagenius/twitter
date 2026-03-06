@@ -24,6 +24,7 @@ import {
 export default function Header({ onLogout }) {
 
   const { currentUser, activeComponent, setActiveComponent, showCreatePostModal, setShowCreatePostModal } = useContext(AuthContext);
+  
   return (
     <nav className={styles.sidebar}>
       <div className={styles.logo}>

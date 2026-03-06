@@ -1,5 +1,5 @@
 import styles from './Post.module.css';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import PostComment from '../PostComments/PostComment'
 import UploadComment from '../UploadComment/UploadComment'
@@ -18,15 +18,10 @@ export default function Post({ post }) {
   const { currentUser, setShowEditPostModal, setEditingPost, comments } = useContext(AuthContext);
 
   let [showComments, setShowComments] = useState(false)
-  let [postComments, setPostComments] = useState([])
 
-  useEffect(() => {
-    let thisPostComments = comments.filter((comment) => {
+  let postComments = comments.filter((comment) => {
       return comment.postId === post.id
     })
-    setPostComments(thisPostComments)
-    // eslint-disable-next-line
-  }, [postComments])
 
 
   return (
