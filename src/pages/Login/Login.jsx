@@ -7,6 +7,7 @@ import SignUp from '../../components/Signup/SignUp';
 
 export default function Login() {
   const { users, currentUser, setCurrentUser } = useContext(AuthContext);
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showModal, setShowModal] = useState(false);
@@ -68,11 +69,11 @@ export default function Login() {
           <button className={styles.loginBtn} type="submit">
             Log in
           </button>
-          <p className={styles.termsText}>
+          <div className={styles.termsText}>
             By signing up, you agree to the <span>Terms of Service</span> and <span>Privacy Policy</span>, including <span>Cookie Use.</span>
-          </p>
+          </div>
 
-          <p className={styles.signupHeading} >Already have an account? </p>
+          <div className={styles.signupHeading} >Already have an account? </div>
           <button className={styles.signupBtn} onClick={() => {
             setShowModal(!showModal);
           }}>

@@ -39,7 +39,7 @@ export default function Header({ onLogout }) {
             {activeComponent === "Posts"
               ? <HiHome className={styles.icon} />
               : <HiOutlineHome className={styles.icon} />}
-            {activeComponent === "Posts" ? <strong>Posts</strong> : <p>Posts</p>}
+            {activeComponent === "Posts" ? <strong>Home</strong> : <p>Home</p>}
           </div>
 
           <div onClick={() => {

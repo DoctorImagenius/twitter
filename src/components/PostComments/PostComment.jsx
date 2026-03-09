@@ -36,7 +36,7 @@ export default function PostComment({ comment }) {
           }
           
         </div>
-        <h6 className={styles.commentBody}>{comment.body}</h6>
+        <div className={styles.commentBody}>{comment.body}</div>
       </div>
     </div>
   );

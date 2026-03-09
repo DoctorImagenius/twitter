@@ -8,10 +8,7 @@ import MyPosts from '../../components/MyPosts/MyPosts';
 import CreatePostModal from '../../components/CreatePost/CreatePost';
 import EditPost from '../../components/EditPost/EditPost';
 import EditComment from '../../components/EditComment/EditComment';
-
 import NavBar from '../../components/NavBar/NavBar'
-
-
 
 
 export default function Home() {
@@ -21,6 +18,26 @@ export default function Home() {
 
   const [postTitle, setPostTitle] = useState('');
   const [postBody, setPostBody] = useState('');
+  const [pageTitle, setPageTitle] = useState(() => activeComponent)
+
+  useEffect(() => {
+    if (!currentUser) navigate('/login');
+  }, [currentUser, navigate]);
+
+  useEffect(() => {
+    if (activeComponent === "Posts") setPageTitle("Home")
+    if (activeComponent === "MyPosts") setPageTitle("My Posts")
+  }, [activeComponent])
+
+  const components = {
+    Posts: <Posts />,
+    MyPosts: <MyPosts />,
+    Notifications: <div className={styles.component}>Notifications Component</div>,
+    Messages: <div className={styles.component}>Messages Component</div>,
+    Bookmarks: <div className={styles.component}>Bookmark Component</div>,
+    Profile: <div className={styles.component}>Profile Component</div>,
+    More: <div className={styles.component}>More Component</div>,
+  };
 
   const handlePost = () => {
     if (!postTitle.trim() || !postBody.trim()) return;
@@ -36,21 +53,6 @@ export default function Home() {
     localStorage.setItem('posts', JSON.stringify([newPost, ...posts]));
     setPostTitle('');
     setPostBody('');
-  };
-
-  useEffect(() => {
-    if (!currentUser) navigate('/login');
-  }, [currentUser, navigate]);
-
-
-  const components = {
-    Posts: <Posts />,
-    MyPosts: <MyPosts />,
-    Notifications: <div className={styles.component}>Notifications Component</div>,
-    Messages: <div className={styles.component}>Messages Component</div>,
-    Bookmarks: <div className={styles.component}>Bookmark Component</div>,
-    Profile: <div className={styles.component}>Profile Component</div>,
-    More: <div className={styles.component}>More Component</div>,
   };
 
   const handleLogout = () => {
@@ -71,7 +73,8 @@ export default function Home() {
       {loading ? "Loading..." :
         <main className={styles.feed}>
           <div className={styles.feedHeader}>
-            <h2>{activeComponent}</h2>
+            <h2>{pageTitle}</h2>
+
           </div>
 
           <div className={styles.whatsHappening}>

@@ -1,128 +1,85 @@
-import { useState, useEffect } from 'react'
-import {postApi, commentApi} from '../config/Config'
+import { useState, useEffect } from 'react';
 
 export default function useFetchData() {
 
-    const [users, setUsers] = useState([]);
-    const [posts, setPosts] = useState([]);
-    const [comments, setComments] = useState([]);
-    const [currentUser, setCurrentUser] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [activeComponent, setActiveComponent] = useState("Posts");
-    const [showCreatePostModal, setShowCreatePostModal] = useState(false);
-    const [showEditPostModal, setShowEditPostModal] = useState(false);
-    const [editingPost, setEditingPost] = useState(null);
-    const [showEditCommentModal, setShowEditCommentModal] = useState(false);
-    const [editingComment, setEditingComment] = useState(null);
+  const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [activeComponent, setActiveComponent] = useState("Posts");
+  const [showCreatePostModal, setShowCreatePostModal] = useState(false);
+  const [showEditPostModal, setShowEditPostModal] = useState(false);
+  const [editingPost, setEditingPost] = useState(null);
+  const [showEditCommentModal, setShowEditCommentModal] = useState(false);
+  const [editingComment, setEditingComment] = useState(null);
 
-    useEffect(() => {
-        const initializeApp = async () => {
+  useEffect(() => {
 
-            try {
-                const storedUsers = localStorage.getItem('users');
-                if (storedUsers) {
-                    setUsers(JSON.parse(storedUsers));
-                } else {
-                    setUsers([]);
-                    localStorage.setItem('users', JSON.stringify([]));
-                }
+    const getData = async (key, url, setter) => {
+      const stored = localStorage.getItem(key);
+        const parsed = stored ? JSON.parse(stored) : null;
 
-                const storedPosts = localStorage.getItem('posts');
-                if (storedPosts) {
-                    if (JSON.parse(storedPosts).length === 0) {
-                        try {
-                            const res = await fetch(postApi);
-                            const data = await res.json();
-                            setPosts(data);
-                            localStorage.setItem('posts', JSON.stringify(data));
-                        }
-                        catch (err) {
-                            setPosts([]);
-                            localStorage.setItem('posts', JSON.stringify([]));
-                        }
-                    }
-                    else {
-                        setPosts(JSON.parse(storedPosts));
-                    }
-                } else {
-                    try {
-                        const res = await fetch(postApi);
-                        const data = await res.json();
-                        setPosts(data);
-                        localStorage.setItem('posts', JSON.stringify(data));
-                    }
-                    catch (err) {
-                        setPosts([]);
-                        localStorage.setItem('posts', JSON.stringify([]));
-                    }
-                }
-                const storedComments = localStorage.getItem('comments');
-                if (storedComments) {
-                    if (JSON.parse(storedComments).length === 0) {
-                        try {
-                            const res = await fetch(commentApi);
-                            const data = await res.json();
-                            setComments(data);
-                            localStorage.setItem('comments', JSON.stringify(data));
-                        }
-                        catch (err) {
-                            setComments([]);
-                            localStorage.setItem('comments', JSON.stringify([]));
-                        }
-                    }
-                    else {
-                        setComments(JSON.parse(storedComments));
+      if (parsed && parsed.length > 0) {
+        setter(parsed);
+      } else {
+        try {
+          const res = await fetch(url);
+          const data = await res.json();
+          setter(data);
+          localStorage.setItem(key, JSON.stringify(data));
+        } catch {
+          setter([]);
+          localStorage.setItem(key, JSON.stringify([]));
+        }
+      }
+    };
 
-                    }
-                } else {
-                    try {
-                        const res = await fetch(commentApi);
-                        const data = await res.json();
-                        setComments(data);
-                        localStorage.setItem('comments', JSON.stringify(data));
-                    }
-                    catch (err) {
-                        setComments([]);
-                        localStorage.setItem('comments', JSON.stringify([]));
-                    }
-                }
-                const storedCurrentUser = localStorage.getItem('currentUser');
-                if (storedCurrentUser) {
-                    setCurrentUser(JSON.parse(storedCurrentUser));
-                }
-            }
-            catch (error) {
-                console.error('Error initializing app:', error);
-            }
+    const initializeApp = async () => {
 
-            setLoading(false);
-        };
+      await getData("posts", "https://jsonplaceholder.typicode.com/posts", setPosts);
+      await getData("comments", "https://jsonplaceholder.typicode.com/comments", setComments);
 
-        initializeApp();
-    }, []);
+      const storedUsers = localStorage.getItem("users");
+      if (storedUsers) {
+        setUsers(JSON.parse(storedUsers));
+      } else {
+        localStorage.setItem("users", JSON.stringify([]));
+      }
 
+      const storedCurrentUser = localStorage.getItem("currentUser");
+      if (storedCurrentUser) {
+        setCurrentUser(JSON.parse(storedCurrentUser));
+      }
 
-    return {
-        users,
-        setUsers,
-        posts,
-        setPosts,
-        comments,
-        setComments,
-        currentUser,
-        setCurrentUser,
-        loading,
-        activeComponent,
-        setActiveComponent,
-        showCreatePostModal,
-        setShowCreatePostModal,
-        showEditPostModal,
-        setShowEditPostModal,
-        editingPost,
-        setEditingPost,
-        showEditCommentModal,
-        setShowEditCommentModal,
-        editingComment,
-        setEditingComment,
-    }
+      setLoading(false);
+    };
+
+    initializeApp();
+
+  }, []);
+
+  return {
+    users,
+    setUsers,
+    posts,
+    setPosts,
+    comments,
+    setComments,
+    currentUser,
+    setCurrentUser,
+    loading,
+    activeComponent,
+    setActiveComponent,
+    showCreatePostModal,
+    setShowCreatePostModal,
+    showEditPostModal,
+    setShowEditPostModal,
+    editingPost,
+    setEditingPost,
+    showEditCommentModal,
+    setShowEditCommentModal,
+    editingComment,
+    setEditingComment,
+  };
 }

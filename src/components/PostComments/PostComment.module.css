@@ -59,11 +59,3 @@
 .commentDot:hover{
   color: #1d9bf0;
 }
-
-
-@media (max-width: 500px) {
-  /* .commentSection{
-    display: flex;
-    flex-direction: column;
-  } */
-}
