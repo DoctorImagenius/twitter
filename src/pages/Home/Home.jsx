@@ -46,11 +46,11 @@ export default function Home() {
   const components = {
     Posts: <Posts />,
     MyPosts: <MyPosts />,
-    Notifications: <div>Notifications Component</div>,
-    Messages: <div>Messages Component</div>,
-    Bookmarks: <div>Bookmark Component</div>,
-    Profile: <div>Profile Component</div>,
-    More: <div>More Component</div>,
+    Notifications: <div className={styles.component}>Notifications Component</div>,
+    Messages: <div className={styles.component}>Messages Component</div>,
+    Bookmarks: <div className={styles.component}>Bookmark Component</div>,
+    Profile: <div className={styles.component}>Profile Component</div>,
+    More: <div className={styles.component}>More Component</div>,
   };
 
   const handleLogout = () => {
@@ -133,7 +133,7 @@ export default function Home() {
       }
 
       <div className={styles.mobileHeader}>
-        <NavBar />
+        <NavBar onLogout={handleLogout} />
       </div>
 
     </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import {postApi, commentApi} from '../config/Config'
 
 export default function useFetchData() {
 
@@ -30,7 +31,7 @@ export default function useFetchData() {
                 if (storedPosts) {
                     if (JSON.parse(storedPosts).length === 0) {
                         try {
-                            const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+                            const res = await fetch(postApi);
                             const data = await res.json();
                             setPosts(data);
                             localStorage.setItem('posts', JSON.stringify(data));
@@ -45,7 +46,7 @@ export default function useFetchData() {
                     }
                 } else {
                     try {
-                        const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+                        const res = await fetch(postApi);
                         const data = await res.json();
                         setPosts(data);
                         localStorage.setItem('posts', JSON.stringify(data));
@@ -59,7 +60,7 @@ export default function useFetchData() {
                 if (storedComments) {
                     if (JSON.parse(storedComments).length === 0) {
                         try {
-                            const res = await fetch('https://jsonplaceholder.typicode.com/comments');
+                            const res = await fetch(commentApi);
                             const data = await res.json();
                             setComments(data);
                             localStorage.setItem('comments', JSON.stringify(data));
@@ -75,7 +76,7 @@ export default function useFetchData() {
                     }
                 } else {
                     try {
-                        const res = await fetch('https://jsonplaceholder.typicode.com/comments');
+                        const res = await fetch(commentApi);
                         const data = await res.json();
                         setComments(data);
                         localStorage.setItem('comments', JSON.stringify(data));

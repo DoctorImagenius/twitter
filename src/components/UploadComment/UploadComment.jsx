@@ -26,30 +26,30 @@ export default function UploadComment({ post }) {
     localStorage.setItem('comments', JSON.stringify(updatedComments));
   }
 
-  return (
-
-    <div className={styles.commentCard}>
-      <div className={styles.avatar}>
-        <img
-          src={`https://picsum.photos/500/300?random=${post.id}`}
-          alt="post"
-        />
-      </div>
-      <input className={styles.input}
-        placeholder="Post your reply"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
+return (
+  <div className={styles.commentCard}>
+    <div className={styles.avatar}>
+      <img
+        src={`https://picsum.photos/500/300?random=${post.id}`}
+        alt="avatar"
       />
-      <button
-        className={styles.miniPostBtn}
-        disabled={!comment.trim()}
-        onClick={handleUploadComment}
-      >
-        Reply
-      </button>
-
     </div>
 
-  )
+    <input 
+      className={styles.input}
+      placeholder="Post your reply"
+      value={comment}
+      onChange={(e) => setComment(e.target.value)}
+    />
+
+    <button
+      className={styles.miniPostBtn}
+      disabled={!comment.trim()}
+      onClick={handleUploadComment}
+    >
+      Reply
+    </button>
+  </div>
+);
 }
 

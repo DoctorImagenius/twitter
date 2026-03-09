@@ -84,7 +84,10 @@ export default function Post({ post }) {
               </>
               :
               <>
-                "no comment yet!"
+                
+                <div className={styles.noPostComment}>
+                  There is no comment!
+                </div>
                 <UploadComment post={post} />
               </>
           }

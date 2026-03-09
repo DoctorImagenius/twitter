@@ -71,6 +71,7 @@
     border-radius: 50px;
     border: 1px solid #ece8e8;
     transition: 0.2s;
+    overflow: hidden;
 }
 
 .userProfile:hover {
@@ -78,8 +79,8 @@
 }
 
 .avatar {
-    width: 40px;
-    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
     background: #ccc;
     border-radius: 50%;
     font-weight: bold;
@@ -148,8 +149,4 @@
         width: 40px;
         height: 40px;
     }
-}
-
-@media (max-width: 500px) {
-    
 }

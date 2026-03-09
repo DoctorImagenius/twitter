@@ -1,14 +1,14 @@
-*{
+* {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.mobileHeader{
+.mobileHeader {
     visibility: hidden;
 }
 
 .homeLayout {
     display: grid;
-    grid-template-columns: 275px 600px 1fr; 
+    grid-template-columns: 275px 600px 1fr;
     max-width: 1250px;
     margin: 0 auto;
 }
@@ -29,11 +29,12 @@
 .whatsHappening {
     padding: 15px;
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     border-bottom: 1px solid #eff3f4;
 }
 
-.avatarSmall{
+.avatarSmall {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -43,41 +44,40 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-
 }
 
 .postInputs {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .titleInput {
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  outline: none;
-  border-radius: 8px;
-  background-color: #f7f9fa;
-  color: #111;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background-color: #f7f9fa;
+    color: #111;
 }
 
 .bodyInput {
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  outline: none;
-  resize: none;
-  border-radius: 8px;
-  min-height: 80px;
-  background-color: #f7f9fa;
-  color: #111;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    resize: none;
+    border-radius: 8px;
+    min-height: 80px;
+    background-color: #f7f9fa;
+    color: #111;
 }
 
 .miniPostBtn:disabled {
-  background-color: #aaa;
-  cursor: not-allowed;
+    background-color: #aaa;
+    cursor: not-allowed;
 }
 
 .whatsHappening textarea {
@@ -95,7 +95,7 @@
     padding: 10px 16px;
     border-radius: 50px;
     font-weight: bold;
-    align-self: flex-end;
+    align-self: flex-start;
     cursor: pointer;
 }
 
@@ -151,33 +151,57 @@
     background-color: rgba(248, 244, 244, 1);
 }
 
-.mobileHeader{
+.mobileHeader {
     visibility: hidden;
 }
 
+.component{
+    border-bottom: 1px solid #eff3f4;
+    text-align: center;
+    padding: 10px;
+}
+
 @media (max-width: 1280px) {
-    .homeLayout { grid-template-columns: 100px 600px auto; }
+    .homeLayout {
+        grid-template-columns: 100px 600px auto;
+    }
 }
 
 @media (max-width: 1000px) {
-    .homeLayout { grid-template-columns: 100px 1fr 0;    
+    .homeLayout {
+        grid-template-columns: 100px 1fr 0;
     }
-    .widgets { visibility: hidden; }
+
+    .widgets {
+        visibility: hidden;
+    }
 }
 
 @media (max-width: 500px) {
 
     .homeLayout {
-    grid-template-columns: 0 1fr 0;
-    margin: 0px;
+       max-width: 100vw; 
+        display: block;
+    }
+
+    .webHeader {
+        display: none;
+    }
+
+    .mobileHeader {
+        visibility: visible;
+    }
+
+    .feed {
+    position: relative;
 }
 
-    .webHeader{
-        visibility: hidden;
-    }
-
-    .mobileHeader{
-        visibility:visible;
-    }
+.feedHeader {
+    position: sticky;
+    top: 0;
+}
+.miniPostBtn {
+    width: 100%;
+}
     
 }

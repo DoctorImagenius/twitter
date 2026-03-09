@@ -21,6 +21,7 @@ export default function PostComment({ comment }) {
       <div className={styles.commentSection}>
         <div className={styles.commentHeader}>
           <span className={styles.commentName}>{comment.name}</span>
+          
           <span className={styles.commentEmail}>@{comment.email.split('@')[0]}</span>
           {
             currentUser.email === comment.email ?
@@ -33,8 +34,9 @@ export default function PostComment({ comment }) {
               />
               : ""
           }
+          
         </div>
-        <p className={styles.commentBody}>{comment.body}</p>
+        <h6 className={styles.commentBody}>{comment.body}</h6>
       </div>
     </div>
   );
