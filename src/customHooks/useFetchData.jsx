@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import {postApi, commentApi} from '../config/Config'
 
 export default function useFetchData() {
 
@@ -37,8 +38,8 @@ export default function useFetchData() {
 
     const initializeApp = async () => {
 
-      await getData("posts", "https://jsonplaceholder.typicode.com/posts", setPosts);
-      await getData("comments", "https://jsonplaceholder.typicode.com/comments", setComments);
+      await getData("posts", postApi, setPosts);
+      await getData("comments", commentApi, setComments);
 
       const storedUsers = localStorage.getItem("users");
       if (storedUsers) {
@@ -56,7 +57,6 @@ export default function useFetchData() {
     };
 
     initializeApp();
-
   }, []);
 
   return {
