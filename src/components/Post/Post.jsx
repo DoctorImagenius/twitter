@@ -1,7 +1,7 @@
 import styles from './Post.module.css';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
-import PostComment from '../PostComments/PostComment'
+import PostComment from '../PostComment/PostComment'
 import UploadComment from '../UploadComment/UploadComment'
 
 import {

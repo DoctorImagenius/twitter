@@ -5,9 +5,9 @@ import Header from '../../components/Header/Header';
 import styles from './Home.module.css';
 import Posts from '../../components/Posts/Posts';
 import MyPosts from '../../components/MyPosts/MyPosts';
-import CreatePostModal from '../../components/CreatePost/CreatePost';
-import EditPost from '../../components/EditPost/EditPost';
-import EditComment from '../../components/EditComment/EditComment';
+import CreatePostModal from '../../components/CreatePostModal/CreatePostModal';
+import EditPostModal from '../../components/EditPostModal/EditPostModal';
+import EditCommentModal from '../../components/EditCommentModal/EditCommentModal';
 import NavBar from '../../components/NavBar/NavBar'
 
 
@@ -129,10 +129,10 @@ export default function Home() {
         showCreatePostModal && (<CreatePostModal />)
       }
       {
-        showEditPostModal && (<EditPost />)
+        showEditPostModal && (<EditPostModal />)
       }
       {
-        showEditCommentModal && (<EditComment />)
+        showEditCommentModal && (<EditCommentModal />)
       }
 
       <div className={styles.mobileHeader}>

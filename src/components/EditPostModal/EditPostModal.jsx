@@ -1,8 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
-import styles from "./EditPost.module.css";
+import styles from "./EditPostModal.module.css";
 
-export default function EditPost() {
+export default function EditPostModal() {
 
   const {
     currentUser,
@@ -46,7 +46,6 @@ export default function EditPost() {
 
     setPosts(filteredPosts);
     localStorage.setItem("posts", JSON.stringify(filteredPosts));
-
     setShowEditPostModal(false);
   };
 

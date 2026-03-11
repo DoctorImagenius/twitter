@@ -42,10 +42,7 @@ export default function NavBar({ onLogout }) {
       <div 
         className={showCreatePostModal === true ? styles.activeTab : ""} 
         onClick={() => 
-        {
-          setShowCreatePostModal(true)
-        }
-        }
+          setShowCreatePostModal(true)}
       >
         {showCreatePostModal === true
           ? <HiPlusCircle className={styles.icon} />

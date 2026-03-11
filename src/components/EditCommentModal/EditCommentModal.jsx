@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
-import styles from "./EditComment.module.css";
+import styles from "./EditCommentModal.module.css";
 
-export default function EditComment() {
+export default function EditCommentModal() {
 
   const {
     setShowEditCommentModal, currentUser, comments, setComments, editingComment, setEditingComment
