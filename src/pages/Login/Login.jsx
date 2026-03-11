@@ -75,9 +75,9 @@ export default function Login() {
 
           <div className={styles.signupHeading} >Already have an account? </div>
           <button className={styles.signupBtn} onClick={() => {
-            setShowModal(!showModal);
+            setShowModal(true);
           }}>
-            Sign in
+            Sign up
           </button>
 
           <button className={styles.signupBtn} onClick={() => alert('We are working on this feature!')}>
